@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Canal LYNX | Central Oficial de Downloads</title>
+  
+  <!-- ==========================================
+       SEGURANÇA DO SITE
+       ========================================== -->
+
+  <!-- CSP: Só permite carregar scripts/estilos deste site, do Google Fonts e do FontAwesome CDN. Bloqueia todo resto. -->
+  <meta http-equiv="Content-Security-Policy" content="
+    default-src 'self';
+    script-src 'self';
+    style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com;
+    font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com;
+    img-src 'self' https://images.unsplash.com https://i.ytimg.com data:;
+    connect-src 'self';
+    frame-src 'none';
+    object-src 'none';
+    base-uri 'self';
+    form-action 'none';
+  ">
+
+  <!-- Impede que outros sites embutam o seu site dentro de um iframe (Clickjacking) -->
+  <meta http-equiv="X-Frame-Options" content="DENY">
+
+  <!-- Impede que o navegador tente adivinhar o tipo do arquivo (sniffing) -->
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+
+  <!-- Controla quais informações são enviadas ao clicar em links externos -->
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+
+  <!-- Desativa acesso a câmera, microfone, geolocalização e outros sensores do navegador -->
+  <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=(), usb=(), interest-cohort=()">
+
+  <!-- ==========================================
+       META TAGS & SEO
+       ========================================== -->
+  <meta name="description" content="Central oficial de downloads, FastFlags e otimizações do canal LYNX no YouTube. Baixe arquivos de performance, programas e scripts com segurança.">
+  <meta name="theme-color" content="#ff1e42">
+  
+  <!-- Open Graph / Redes Sociais -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Canal LYNX | Central de Downloads & FastFlags">
+  <meta property="og:description" content="Todos os arquivos e configurações de FastFlags do canal LYNX organizados para máximo FPS.">
+  <meta property="og:image" content="thumb-fastflag.jpg">
+
+  <!-- ==========================================
+       FONTES & ESTILOS EXTERNOS
+       ========================================== -->
+
+  <!-- Google Fonts: Plus Jakarta Sans & Chakra Petch (Gamer / Tech Vibe) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome 6 (com SRI - Subresource Integrity: garante que o arquivo não foi alterado) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+
+  <!-- Estilo do Site -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Container de partículas / fagulhas flutuantes no fundo -->
+  <div id="particles-bg"></div>
+
+  <!-- ==========================================
+       CABEÇALHO / NAVBAR
+       ========================================== -->
+  <header class="header">
+    <div class="container header-container">
+      <a href="#" class="brand">
+        <span class="brand-text">
+          LYNX<span>.</span>
+        </span>
+      </a>
+
+      <nav class="nav-links">
+        <a href="#downloads" class="nav-link">
+          <i class="fa-solid fa-cloud-arrow-down"></i>
+          <span>Downloads</span>
+        </a>
+        <a href="#como-baixar" class="nav-link">
+          <i class="fa-regular fa-circle-question"></i>
+          <span>Ajuda</span>
+        </a>
+        <a href="https://www.youtube.com/@LynXOtimiza%C3%A7%C3%A3o" target="_blank" rel="noopener noreferrer" class="btn-yt">
+          <i class="fa-brands fa-youtube"></i>
+          <span>Canal no YouTube</span>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ==========================================
+       HERO SECTION (BANNER PRINCIPAL)
+       ========================================== -->
+  <main class="container">
+    <section class="hero">
+      <div class="hero-pill">
+        <span class="dot"></span>
+        <span>SISTEMA DE OTIMIZAÇÕES // CENTRAL OFICIAL LYNX</span>
+      </div>
+
+      <h1 class="hero-title">
+        ESPERO QUE GOSTEM DO CANAL E DAS DICAS <span class="gradient-text">ABRAÇOS DO -LYNX</span>
+      </h1>
+
+      <!-- BARRA DE PESQUISA -->
+      <div class="search-section">
+        <div class="search-box">
+          <i class="fa-solid fa-magnifying-glass search-icon"></i>
+          <input 
+            type="text" 
+            id="searchInput" 
+            class="search-input" 
+            placeholder="Pesquise pelo título do vídeo... (Ctrl + K)"
+            autocomplete="off"
+          >
+          <button id="clearSearchBtn" class="clear-search-btn" title="Limpar pesquisa">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+
+        <!-- FILTRO DE CATEGORIAS -->
+        <div class="categories-wrapper" id="categoriesContainer">
+          <!-- Gerado dinamicamente via JavaScript -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         DESTAQUES / VANTAGENS
+         ========================================== -->
+    <section class="features-banner">
+      <div class="feature-box">
+        <div class="feature-icon">
+          <i class="fa-solid fa-gauge-high"></i>
+        </div>
+        <div class="feature-info">
+          <h4>FPS Desbloqueado</h4>
+          <p>Máximo de fluidez e redução de input lag</p>
+        </div>
+      </div>
+
+      <div class="feature-box">
+        <div class="feature-icon">
+          <i class="fa-solid fa-microchip"></i>
+        </div>
+        <div class="feature-info">
+          <h4>Baixo Consumo</h4>
+          <p>Menos uso de CPU e RAM no PC</p>
+        </div>
+      </div>
+
+      <div class="feature-box">
+        <div class="feature-icon">
+          <i class="fa-solid fa-shield-halved"></i>
+        </div>
+        <div class="feature-info">
+          <h4>100% Seguro</h4>
+          <p>Arquivos verificados e livres de vírus</p>
+        </div>
+      </div>
+
+      <div class="feature-box">
+        <div class="feature-icon">
+          <i class="fa-solid fa-bolt-lightning"></i>
+        </div>
+        <div class="feature-info">
+          <h4>Download Direto</h4>
+          <p>Google Drive, MediaFire e servidores velozes</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SEÇÃO DE DOWNLOADS (GRID)
+         ========================================== -->
+    <section id="downloads">
+      <div class="section-header">
+        <h2 class="section-title">
+          <i class="fa-solid fa-layer-group"></i> Arquivos e Tutoriais
+        </h2>
+        <span class="results-count" id="resultsCount">Carregando arquivos...</span>
+      </div>
+
+      <!-- GRID DINÂMICO -->
+      <div class="downloads-grid" id="downloadsGrid">
+        <!-- Renderizado dinamicamente pelo app.js -->
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SEÇÃO: COMO BAIXAR & FAQ
+         ========================================== -->
+    <section class="faq-section" id="como-baixar">
+      <div class="faq-header">
+        <h3><i class="fa-solid fa-circle-info" style="color: var(--accent-red);"></i> Dúvidas Frequentes & Instruções</h3>
+        <p>Tudo o que você precisa saber para baixar e instalar os arquivos sem dor de cabeça.</p>
+      </div>
+
+      <div class="faq-grid">
+        <div class="faq-item">
+          <h5><i class="fa-solid fa-file-zipper"></i> Como descompactar?</h5>
+          <p>A maioria dos arquivos está em formato <strong>.ZIP</strong> ou <strong>.RAR</strong>. Recomendamos usar o software gratuito <strong>WinRAR</strong> ou <strong>7-Zip</strong> para extrair.</p>
+        </div>
+
+        <div class="faq-item">
+          <h5><i class="fa-solid fa-key"></i> Pediu senha, qual é?</h5>
+          <p>Caso algum arquivo tenha senha, ela estará indicada em destaque no card com o botão <strong>"Copiar"</strong>. Basta clicar e colar ao extrair.</p>
+        </div>
+
+        <div class="faq-item">
+          <h5><i class="fa-solid fa-shield-virus"></i> O antivírus bloqueou?</h5>
+          <p>Alguns scripts (.bat) ou modificadores podem ser apontados como falsos-positivos por não terem assinatura comercial. Todos os arquivos são testados pessoalmente pelo canal <strong>LYNX</strong>.</p>
+        </div>
+
+        <div class="faq-item">
+          <h5><i class="fa-solid fa-link-slash"></i> Link fora do ar?</h5>
+          <p>Sempre disponibilizamos o botão <strong>"Espelho"</strong> com um link alternativo. Se ambos caírem, comente no vídeo do YouTube para atualizarmos imediatamente!</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==========================================
+       RODAPÉ / FOOTER
+       ========================================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="#" class="brand">
+            <span class="brand-text">
+              LYNX<span>.</span>
+            </span>
+          </a>
+        </div>
+
+        <div class="social-links">
+          <a href="https://www.youtube.com/@LynXOtimiza%C3%A7%C3%A3o" target="_blank" rel="noopener noreferrer" class="social-btn" title="YouTube do canal LYNX">
+            <i class="fa-brands fa-youtube"></i>
+          </a>
+          <a href="https://discord.com" target="_blank" rel="noopener noreferrer" class="social-btn" title="Comunidade no Discord">
+            <i class="fa-brands fa-discord"></i>
+          </a>
+          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-btn" title="Instagram">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+          <a href="https://t.me" target="_blank" rel="noopener noreferrer" class="social-btn" title="Grupo no Telegram">
+            <i class="fa-brands fa-telegram"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 Canal <strong>LYNX</strong>. Todos os direitos reservados. Feito para a comunidade.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================
+       TOAST DE NOTIFICAÇÃO (COPIAR SENHA)
+       ========================================== -->
+  <div class="toast" id="toast">
+    <i class="fa-solid fa-circle-check"></i>
+    <span id="toastMessage">Ação realizada com sucesso!</span>
+  </div>
+
+  <!-- Scripts -->
+  <script src="downloads-data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
