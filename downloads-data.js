@@ -23,6 +23,20 @@
 
 const DOWNLOADS_DATA = [
   {
+    id: 2,
+    title: "Otimização para qualquer pc fraco (2026)",
+    category: "otimizacoes",
+    description: "Script completo de otimização para PC fraco (otimizador.bat). Limpa arquivos temporários, ativa o modo de alto desempenho e reduz drasticamente o consumo de CPU e memória RAM para máximo FPS sem lag.",
+    thumbnail: "thumb-otimizacao-pc.jpg",
+    youtubeUrl: "",
+    downloadUrl: "https://drive.google.com/file/d/1Yqh_P9x1qbOl7fdSGkdvSYN1GY3kNh9T/view?usp=drive_link",
+    mirrorUrl: "https://www.mediafire.com/file/8b992ajd30pmta8/Otimização.rar/file",
+    size: "4.06 KB",
+    date: "18/10/2026",
+    password: "",
+    featured: true
+  },
+  {
     id: 1,
     title: "Método funcional ! fastflags em pc fraco 2026 ROBLOX",
     category: "otimizacoes",
@@ -34,6 +48,6 @@ const DOWNLOADS_DATA = [
     size: "87.63 KB",
     date: "16/10/2026",
     password: "",
-    featured: true
+    featured: false
   }
 ];
